@@ -14,11 +14,11 @@ public class WiringPiLed implements WiringPiAdaptee {
     private boolean on; // might not actually need right now
 
     public WiringPiLed(int pin) {
+        if (pin >29 || pin < 0) {} // throws Pin DNE Exception
         this.pin = pin;
     }
 
     public void turnOn() throws IOException {
-        if (pin > 29 || pin < 0) {} //throw pin does not exist exception
         String pinN = "" + pin;
         List<String> command = new ArrayList();
 
