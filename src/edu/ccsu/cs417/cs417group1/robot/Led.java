@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by mattrusczyk on 11/1/16.
  */
-public interface WiringPiAdaptee {
+public interface Led {
     public void setPinOut() throws IOException;
     public void setPinIn() throws IOException;
     public void turnOn() throws IOException;

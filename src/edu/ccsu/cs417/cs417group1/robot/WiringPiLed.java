@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by mattrusczyk on 11/1/16.
  */
-public class WiringPiLed implements WiringPiAdaptee {
+public class WiringPiLed implements Led {
     private int pin;
     private boolean on; // might not actually need right now
 

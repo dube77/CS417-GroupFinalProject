@@ -9,7 +9,7 @@ import java.util.List;
  * Holds a list of {@link edu.ccsu.cs417.cs417group1} objects that make up the RGB Led
  * Created by mattrusczyk on 11/1/16.
  */
-public class WiringPiRGBLed {
+public class RGBLed {
     List<WiringPiLed> leds = new ArrayList();
 
     /**
@@ -19,7 +19,7 @@ public class WiringPiRGBLed {
      * @param green
      * @param blue
      */
-    public WiringPiRGBLed(WiringPiLed red, WiringPiLed green, WiringPiLed blue) {
+    public RGBLed(WiringPiLed red, WiringPiLed green, WiringPiLed blue) {
         leds.add(red);
         leds.add(green);
         leds.add(blue);
@@ -131,7 +131,7 @@ public class WiringPiRGBLed {
         if (o == null || getClass() != o.getClass()) return false;
         boolean red, blue, green;
 
-        WiringPiRGBLed that = (WiringPiRGBLed) o;
+        RGBLed that = (RGBLed) o;
         red = that.getRed().equals(getRed());
         green = that.getGreen().equals(getGreen());
         blue = that.getBlue().equals(getBlue());
