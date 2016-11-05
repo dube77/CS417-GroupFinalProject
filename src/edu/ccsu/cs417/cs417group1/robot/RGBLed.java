@@ -10,7 +10,7 @@ import java.util.List;
  * Created by mattrusczyk on 11/1/16.
  */
 public class RGBLed {
-    List<WiringPiLed> leds = new ArrayList();
+    List<Led> leds = new ArrayList();
 
     /**
      * Creates a WiringPiRGBLed Object by linking
@@ -30,7 +30,7 @@ public class RGBLed {
      * @throws IOException
      */
     public void turnOn() throws IOException {
-        for (WiringPiLed led: leds) {
+        for (Led led: leds) {
             led.setPinOut();
             led.turnOn();
         }
@@ -41,7 +41,7 @@ public class RGBLed {
      * @throws IOException
      */
     public void turnOff() throws IOException {
-        for (WiringPiLed led: leds) {
+        for (Led led: leds) {
             led.setPinIn(); //this is becasue some leds will still output light when set to 0 V
         }
     }
@@ -113,15 +113,15 @@ public class RGBLed {
         leds.get(2).turnOn();
     }
 
-    public WiringPiLed getRed() {
+    public Led getRed() {
         return leds.get(0);
     }
 
-    public WiringPiLed getGreen() {
+    public Led getGreen() {
         return leds.get(1);
 
     }
-    public WiringPiLed getBlue() {
+    public Led getBlue() {
         return leds.get(2);
     }
 
