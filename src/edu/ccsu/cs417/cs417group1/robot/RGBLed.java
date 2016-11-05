@@ -9,8 +9,8 @@ import java.util.List;
  * Holds a list of {@link edu.ccsu.cs417.cs417group1} objects that make up the RGB Led
  * Created by mattrusczyk on 11/1/16.
  */
-public class WiringPiRGBLed {
-    List<WiringPiLed> leds = new ArrayList();
+public class RGBLed {
+    List<Led> leds = new ArrayList();
 
     /**
      * Creates a WiringPiRGBLed Object by linking
@@ -19,7 +19,7 @@ public class WiringPiRGBLed {
      * @param green
      * @param blue
      */
-    public WiringPiRGBLed(WiringPiLed red, WiringPiLed green, WiringPiLed blue) {
+    public RGBLed(WiringPiLed red, WiringPiLed green, WiringPiLed blue) {
         leds.add(red);
         leds.add(green);
         leds.add(blue);
@@ -30,7 +30,7 @@ public class WiringPiRGBLed {
      * @throws IOException
      */
     public void turnOn() throws IOException {
-        for (WiringPiLed led: leds) {
+        for (Led led: leds) {
             led.setPinOut();
             led.turnOn();
         }
@@ -41,7 +41,7 @@ public class WiringPiRGBLed {
      * @throws IOException
      */
     public void turnOff() throws IOException {
-        for (WiringPiLed led: leds) {
+        for (Led led: leds) {
             led.setPinIn(); //this is becasue some leds will still output light when set to 0 V
         }
     }
@@ -113,15 +113,15 @@ public class WiringPiRGBLed {
         leds.get(2).turnOn();
     }
 
-    public WiringPiLed getRed() {
+    public Led getRed() {
         return leds.get(0);
     }
 
-    public WiringPiLed getGreen() {
+    public Led getGreen() {
         return leds.get(1);
 
     }
-    public WiringPiLed getBlue() {
+    public Led getBlue() {
         return leds.get(2);
     }
 
@@ -131,7 +131,7 @@ public class WiringPiRGBLed {
         if (o == null || getClass() != o.getClass()) return false;
         boolean red, blue, green;
 
-        WiringPiRGBLed that = (WiringPiRGBLed) o;
+        RGBLed that = (RGBLed) o;
         red = that.getRed().equals(getRed());
         green = that.getGreen().equals(getGreen());
         blue = that.getBlue().equals(getBlue());
