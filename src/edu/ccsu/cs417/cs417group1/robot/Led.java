@@ -10,14 +10,15 @@ public abstract class Led {
     private int pin;
     private boolean on;
     
-    public Led(int p)
+    public Led(int p) throws PinDNEException
     {
-        if (p >29 || p < 0) {} // TODO throws Pin DNE Exception
+        if (p >29 || p < 0)
+            throw new PinDNEException(); // TODO throws Pin DNE Exception
         this.pin = p;
     }
     
-    public abstract void setPinOut() throws IOException;
-    public abstract void setPinIn() throws IOException;
+    public abstract void setPinOut() throws IOException, PinDNEException;
+    public abstract void setPinIn() throws IOException, PinDNEException;
     public abstract void turnOn() throws IOException;
     public abstract void turnOff() throws IOException;
     
