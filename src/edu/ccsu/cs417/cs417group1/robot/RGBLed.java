@@ -19,7 +19,7 @@ public class RGBLed {
      * @param green
      * @param blue
      */
-    public RGBLed(WiringPiLed red, WiringPiLed green, WiringPiLed blue) {
+    public RGBLed(Led red, Led green, Led blue) {
         leds.add(red);
         leds.add(green);
         leds.add(blue);
@@ -28,8 +28,9 @@ public class RGBLed {
     /**
      * Turns on all leds to make a white light
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOn() throws IOException {
+    public void turnOn() throws IOException, PinDNEException {
         for (Led led: leds) {
             led.setPinOut();
             led.turnOn();
@@ -39,8 +40,9 @@ public class RGBLed {
     /**
      * This method turns off all leds
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOff() throws IOException {
+    public void turnOff() throws IOException, PinDNEException {
         for (Led led: leds) {
             led.setPinIn(); //this is becasue some leds will still output light when set to 0 V
         }
@@ -49,8 +51,9 @@ public class RGBLed {
     /**
      * THis method turns off all leds and then turns on the red LED
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOnRed() throws IOException {
+    public void turnOnRed() throws IOException, PinDNEException {
         turnOff();
         leds.get(0).setPinOut();
         leds.get(0).turnOn();
@@ -59,8 +62,9 @@ public class RGBLed {
     /**
      * This method turns off all leds and then turns on the green led
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOnGreen() throws IOException {
+    public void turnOnGreen() throws IOException, PinDNEException {
         turnOff();
         leds.get(1).setPinOut();
         leds.get(1).turnOn();
@@ -69,8 +73,9 @@ public class RGBLed {
     /**
      * This method turns off all leds and then turns on the blue led
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOnBlue() throws IOException {
+    public void turnOnBlue() throws IOException, PinDNEException {
         turnOff();
         leds.get(2).setPinOut();
         leds.get(2).turnOn();
@@ -79,8 +84,9 @@ public class RGBLed {
     /**
      * THis method turns off all leds and then makes yellow by turning on both red and green leds
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOnYellow() throws IOException {
+    public void turnOnYellow() throws IOException, PinDNEException {
         turnOff();
         leds.get(0).setPinOut();
         leds.get(0).turnOn();
@@ -91,8 +97,9 @@ public class RGBLed {
     /**
      * This method turns off all leds and then makes cyan by turning on both green and blue leds
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOnCyan() throws IOException {
+    public void turnOnCyan() throws IOException, PinDNEException {
         turnOff();
         leds.get(1).setPinOut();
         leds.get(1).turnOn();
@@ -104,8 +111,9 @@ public class RGBLed {
     /**
      * This method turns off all leds and then makes violet by turning on both red and blue leds
      * @throws IOException
+     * @throws PinDNEException
      */
-    public void turnOnViolet() throws IOException {
+    public void turnOnViolet() throws IOException, PinDNEException {
         turnOff();
         leds.get(0).setPinOut();
         leds.get(0).turnOn();
