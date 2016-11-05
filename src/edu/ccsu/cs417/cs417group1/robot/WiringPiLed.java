@@ -14,13 +14,14 @@ public class WiringPiLed extends Led {
     private boolean on; // might not actually need right now
     private ProcessBuilder pb;
 
-    public WiringPiLed(int p)
+    public WiringPiLed(int p) throws PinDNEException
     {
         super(p);
     }
     
-   public void setPinOut() throws IOException {
-        if (pin > 29 || pin < 0) {}
+   public void setPinOut() throws IOException, PinDNEException {
+        if (pin > 29 || pin < 0)
+            throw new PinDNEException();
         String pinN = "" + pin;
         List<String> command = new ArrayList();
         command.add("gpio");
@@ -31,8 +32,9 @@ public class WiringPiLed extends Led {
         sendCommand(command);
     }
 
-    public void setPinIn() throws IOException {
-        if (pin > 29 || pin < 0) {}
+    public void setPinIn() throws IOException, PinDNEException {
+        if (pin > 29 || pin < 0)
+            throw new PinDNEException();
         String pinN = "" + pin;
         List<String> command = new ArrayList();
         command.add("gpio");
@@ -42,7 +44,7 @@ public class WiringPiLed extends Led {
         sendCommand(command);
     }
     
-    public void turnOn() throws IOException {
+    public void turnOn() throws IOException{
         String pinN = "" + pin;
         List<String> command = new ArrayList();
 
@@ -55,7 +57,7 @@ public class WiringPiLed extends Led {
         sendCommand(command);
     }
 
-    public void turnOff() throws IOException {
+    public void turnOff() throws IOException{
         if (pin > 29 || pin < 0) {}
         String pinN = "" + pin;
         List<String> command = new ArrayList();
