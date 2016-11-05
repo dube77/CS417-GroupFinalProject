@@ -19,7 +19,7 @@ public class RGBLed {
      * @param green
      * @param blue
      */
-    public RGBLed(WiringPiLed red, WiringPiLed green, WiringPiLed blue) {
+    public RGBLed(Led red, Led green, Led blue) {
         leds.add(red);
         leds.add(green);
         leds.add(blue);
