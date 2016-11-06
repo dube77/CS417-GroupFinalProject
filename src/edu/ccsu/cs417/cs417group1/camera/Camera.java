@@ -10,21 +10,28 @@ import javax.imageio.ImageIO;
 /**
  *
  * @author phuphanmbp
+ * Create a object type camera that can take a image and calculate the average color of a image
  */
-public class Camera
+public class Camera implements CameraInterface
 {
    // Path to the raspistill executable.
-   private final String RASPI_STILL_PATH = "/opt/vc/bin/raspistill";
+   private final String _raspistillPath = "/opt/vc/bin/raspistill";
    
    // Specify a picture name.
    private String name = "/home/pi/Desktop/surveillance.jpg";
 
    // Default  constructor.
-   public void RaspiStill()
+   public void Camera()
    {
    }
    
-    private Color getColorAvg(String inputfile){
+    /**
+     * Get average color of a image file
+     * @param inputfile the path of the image file path 
+     * @return average color of the image file
+     */
+   @Override
+    public Color getColorAvg(String inputfile){
         BufferedImage img = null;
         try {
             img = ImageIO.read(new File(inputfile));
@@ -48,13 +55,17 @@ public class Camera
         System.out.println("Did return color");
         return new Color(red / pixelCount, green / pixelCount, blue / pixelCount);
     }
-
+    /**
+     * This method gets camera to take an image and save it by the name /home/pi/Desktop/surveillance.jpg
+     * @return Average color of the image taken
+     */
+   @Override
    public Color takePicture()
    {
         try
         {
             // Create a new string builder with the path to raspistill.
-            StringBuilder sb = new StringBuilder(RASPI_STILL_PATH);
+            StringBuilder sb = new StringBuilder(_raspistillPath);
             sb.append(" -o " + name);
             // Take the photo.
             Runtime.getRuntime().exec(sb.toString());
@@ -67,10 +78,10 @@ public class Camera
         return getColorAvg(name);
    }
    
-   public void takePicture(String name)
+   public Color takePicture(String name)
    {
       this.name = name;
-      takePicture();
+      return takePicture();
    }
 
 }
