@@ -20,9 +20,7 @@ public class WiringPiLed extends Led {
     }
    
     @Override
-   public void setPinOut() throws IOException, PinDNEException {
-        if (pin > 29 || pin < 0)
-            throw new PinDNEException();
+   public void setPinOut() throws IOException {
         String pinN = "" + pin;
         List<String> command = new ArrayList();
         command.add("gpio");
@@ -34,9 +32,7 @@ public class WiringPiLed extends Led {
     }
 
    @Override
-    public void setPinIn() throws IOException, PinDNEException {
-        if (pin > 29 || pin < 0)
-            throw new PinDNEException();
+    public void setPinIn() throws IOException {
         String pinN = "" + pin;
         List<String> command = new ArrayList();
         command.add("gpio");
