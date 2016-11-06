@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Creates an object that controls an RGB Led through the Raspberry Pi GPIO pins
  * Holds a list of {@link edu.ccsu.cs417.cs417group1} objects that make up the RGB Led
- * Created by mattrusczyk on 11/1/16.
+ * @author Matt Rusczyk
  */
 public class RGBLed {
     List<Led> leds = new ArrayList();

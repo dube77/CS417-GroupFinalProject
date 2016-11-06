@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by mattrusczyk on 11/1/16.
+ * class adapter that interfaces with command line program WiringPi
+ * to turn on a LED attached to a gpio pin
+ * @author Matt Rusczyk
  */
-public class WiringPiLed extends Led {
+public class WiringPiLed extends Led { // TODO gotta change these names so they are less confusing
     private int pin;
-    private boolean on; // might not actually need right now
+    private boolean on = false, out = false; // might not actually need right now
     private ProcessBuilder pb;
 
     public WiringPiLed(int p) throws PinDNEException
@@ -29,6 +31,8 @@ public class WiringPiLed extends Led {
         command.add("out");
 
         sendCommand(command);
+
+        out = true;
     }
 
    @Override
@@ -40,6 +44,8 @@ public class WiringPiLed extends Led {
         command.add(pinN);
         command.add("in");
         sendCommand(command);
+
+       out = false;
     }
     
     @Override
@@ -54,6 +60,8 @@ public class WiringPiLed extends Led {
         command.add("0");
 
         sendCommand(command);
+
+        on = true;
     }
 
     @Override
@@ -67,6 +75,7 @@ public class WiringPiLed extends Led {
         command.add("1");
 
         sendCommand(command);
+        on = false;
     }
 
     /**

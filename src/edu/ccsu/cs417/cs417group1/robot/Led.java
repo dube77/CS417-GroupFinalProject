@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by mattrusczyk on 11/1/16.
+ * abstract class that gives a framework to interface with the raspberry pi gpio pins through
+ * the WiringPi command line interface
+ * @author Matt Rusczyk
  */
-public abstract class Led {
+public abstract class Led { // TODO gotta change these names so they are less confusing
     private int pin;
-    private boolean on;
+    private boolean on, out;
     
     public Led(int p) throws PinDNEException
     {
@@ -25,6 +27,12 @@ public abstract class Led {
     public int getPin()
     {
         return pin;
+    }
+    public boolean isOn() {
+        return on;
+    }
+    public boolean isOut() {
+        return out;
     }
     
     @Override
