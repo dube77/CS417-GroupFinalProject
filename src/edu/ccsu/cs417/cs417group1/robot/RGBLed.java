@@ -15,9 +15,9 @@ public class RGBLed {
     /**
      * Creates a WiringPiRGBLed Object by linking
 
-     * @param red
-     * @param green
-     * @param blue
+     * @param red the {@link edu.ccsu.cs417.cs417group1.robot.WiringPiLed} object that will be associated with red
+     * @param green the {@link edu.ccsu.cs417.cs417group1.robot.WiringPiLed} object that will be associated with green
+     * @param blue the {@link edu.ccsu.cs417.cs417group1.robot.WiringPiLed} object that will be associated with blue
      */
     public RGBLed(Led red, Led green, Led blue) {
         leds.add(red);
