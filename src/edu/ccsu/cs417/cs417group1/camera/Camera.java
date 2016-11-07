@@ -98,7 +98,7 @@ public class Camera implements CameraInterface
    @Override
    public int hashCode()
    {
-       
+       return (this.name.hashCode());
    }
     
    @Override
