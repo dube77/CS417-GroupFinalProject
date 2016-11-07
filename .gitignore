@@ -8,3 +8,4 @@ build.xml
 manifest.mf
 /dist/
 /build/
+/bin/
