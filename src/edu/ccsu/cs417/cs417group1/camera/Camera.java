@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 public class Camera implements CameraInterface
 {
    // Path to the raspistill executable.
-   private final String _raspistillPath = "/opt/vc/bin/raspistill";
+   private final String RASPI_STILL_PATH = "/opt/vc/bin/raspistill";
    
    // Specify a picture name.
    private String name = "/home/pi/Desktop/surveillance.jpg";
@@ -65,7 +65,7 @@ public class Camera implements CameraInterface
         try
         {
             // Create a new string builder with the path to raspistill.
-            StringBuilder sb = new StringBuilder(_raspistillPath);
+            StringBuilder sb = new StringBuilder(RASPI_STILL_PATH);
             sb.append(" -o " + name);
             // Take the photo.
             Runtime.getRuntime().exec(sb.toString());
