@@ -9,7 +9,7 @@ import java.util.List;
  * @author Matt Rusczyk
  */
 public abstract class Led { // TODO gotta change these names so they are less confusing
-    private int pin;
+    protected int pin;
     private boolean on, out;
     
     public Led(int p) throws PinDNEException

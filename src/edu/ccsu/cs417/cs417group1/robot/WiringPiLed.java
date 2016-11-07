@@ -12,7 +12,6 @@ import java.util.List;
  * @author Matt Rusczyk
  */
 public class WiringPiLed extends Led { // TODO gotta change these names so they are less confusing
-    private int pin;
     private boolean on = false, out = false; // might not actually need right now
     private ProcessBuilder pb;
 
