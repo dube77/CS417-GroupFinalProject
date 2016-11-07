@@ -83,5 +83,23 @@ public class Camera implements CameraInterface
       this.name = name;
       return takePicture();
    }
+   
+   @Override
+   public boolean equals(Object o)
+   {
+       
+   }
+   
+   @Override
+   public int hashCode()
+   {
+       
+   }
+   
+   @Override
+   public String toString()
+   {
+       
+   }
 
 }

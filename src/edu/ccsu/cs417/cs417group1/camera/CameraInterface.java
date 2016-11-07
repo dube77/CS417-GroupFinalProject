@@ -24,4 +24,11 @@ public interface CameraInterface {
     * @return the average color type Color
     */
    public Color takePicture();
+   
+   @Override
+   public boolean equals(Object o);
+   @Override
+   public int hashCode();
+   @Override
+   public String toString();
 }
