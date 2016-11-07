@@ -51,4 +51,8 @@ public abstract class Led { // TODO gotta change these names so they are less co
     public int hashCode() {
         return getPin();
     }
+
+    public String toString() {
+        return "This component is attached to pin " + pin;
+    }
 }

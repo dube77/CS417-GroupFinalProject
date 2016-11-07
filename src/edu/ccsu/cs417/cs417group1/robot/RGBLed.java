@@ -152,4 +152,12 @@ public class RGBLed {
         return leds != null ? leds.hashCode() : 0;
     }
 
+    @Override
+    public String toString() {
+        String s = "Red is attached to pin " + getRed();
+        s += "\nGreen is attached to pin " +getGreen();
+        s += "\nBlue is attached to pin " +getBlue();
+        return s;
+    }
+
 }
