@@ -1,0 +1,11 @@
+*.class
+.idea/
+.DS_Store
+/nbproject/
+
+build.xml
+
+manifest.mf
+/dist/
+/build/
+/bin/
