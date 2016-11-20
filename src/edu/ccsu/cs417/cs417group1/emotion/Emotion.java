@@ -2,8 +2,8 @@ package edu.ccsu.cs417.cs417group1.emotion;
 
 public abstract class Emotion implements IEmotion
 {
-    double intensity;
-    String description;
+    protected double intensity;
+    protected String description;
     @Override
     abstract public void express();
     @Override
