@@ -2,20 +2,20 @@ package edu.ccsu.cs417.cs417group1.emotion;
 
 public class Joy extends Emotion
 {
-    private final String description = "Joy";
-    private final double intensity = 5;
+    private final String DESCRIPTION = "Joy";
+    private final double INTENSITY = 5;
     
     @Override
     public void express(){
         //Do something related to the LED
     }
 
-    /* Returns the intensity of the current emotion
+    /* Returns the INTENSITY of the current emotion
      * @author Cameron Sonido
      */
     @Override
     public double getIntensity(){
-        return intensity;
+        return INTENSITY;
     }
     
     /* The following 3 functions lack implementation to safely execute the decorator pattern 
@@ -34,10 +34,10 @@ public class Joy extends Emotion
     }
 
     
-    /* Returns the leaf's description
+    /* Returns the leaf's DESCRIPTION
      *  @author Cameron Sonido
      */
     public String getDescription(){
-        return description;
+        return DESCRIPTION;
     }
 }
