@@ -63,4 +63,30 @@ public abstract class EmotionDecorator implements IEmotion
     */
     @Override
     abstract public double getIntensity();
+    
+    @Override
+    public boolean equals(Object o) //TODO Not sure if this is how this method should be implemented
+    {
+        if(this == o)
+            return true;
+        if(o == null || getClass() != o.getClass())
+            return false;
+        
+        EmotionDecorator that = (EmotionDecorator) o;
+        
+        return this.INSTANCE.equals(that.INSTANCE);
+    }
+    
+    @Override
+    public int hashCode() //TODO Not sure if this is how this method should be implemented
+    {
+        return this.INSTANCE.hashCode();
+    }
+    
+    
+    @Override
+    public String toString() //TODO Not sure if this is how this method should be implemented
+    {
+        return this.INSTANCE.toString();
+    }
 }

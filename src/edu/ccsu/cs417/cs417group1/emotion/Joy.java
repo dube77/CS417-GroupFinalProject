@@ -2,8 +2,11 @@ package edu.ccsu.cs417.cs417group1.emotion;
 
 public class Joy extends Emotion
 {
-    private final String DESCRIPTION = "Joy";
-    private final double INTENSITY = 5;
+    
+    public Joy()
+    {
+        super(5, "Joy");
+    }
     
     @Override
     public void express(){

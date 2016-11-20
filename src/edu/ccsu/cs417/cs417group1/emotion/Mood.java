@@ -19,7 +19,8 @@ public abstract class Mood extends Emotion
         }
     }
 
-    public Mood(){
+    public Mood(double intensity, String desc){
+        super(intensity, desc);
         emotes = new ArrayList<IEmotion>();
     }
 

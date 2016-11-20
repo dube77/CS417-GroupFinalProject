@@ -2,8 +2,15 @@ package edu.ccsu.cs417.cs417group1.emotion;
 
 public abstract class Emotion implements IEmotion
 {
-    protected double intensity;
-    protected String description;
+    protected final double INTENSITY;
+    protected final String DESCRIPTION;
+    
+    public Emotion(double intensity, String desc)
+    {
+        this.INTENSITY = intensity;
+        this.DESCRIPTION = desc;
+    }
+    
     @Override
     abstract public void express();
     @Override
@@ -14,8 +21,34 @@ public abstract class Emotion implements IEmotion
     abstract public IEmotion getChild(String desc);
     @Override
     public double getIntensity(){
-        return intensity;
+        return INTENSITY;
     }
     @Override
     abstract public String getDescription();
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        if(this == o)
+            return true;
+        if(o == null || getClass() != o.getClass())
+            return false;
+        
+        Emotion that = (Emotion) o;
+        
+        return this.DESCRIPTION.equals(that.DESCRIPTION);
+    }
+    
+    @Override
+    public int hashCode()
+    {
+        return this.DESCRIPTION.hashCode();
+    }
+    
+    
+    @Override
+    public String toString()
+    {
+        return "This emotion is " + this.INTENSITY;
+    }
 }

@@ -8,4 +8,11 @@ public interface IEmotion
     public IEmotion getChild(String desc);
     public double getIntensity();
     public String getDescription();
+    
+   @Override
+   public boolean equals(Object o);
+   @Override
+   public int hashCode();
+   @Override
+   public String toString();
 }
