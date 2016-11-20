@@ -33,6 +33,7 @@ public class Camera implements CameraInterface
      * @param inputfile the path of the image 
      * @return average color of the image file
      */
+   @Override
    public Color getColorAvg(String inputfile){
         BufferedImage img = null;
         img = picture.getImage(inputfile);
@@ -61,6 +62,7 @@ public class Camera implements CameraInterface
      * This method gets camera to take an image and save it by the name /home/pi/Desktop/surveillance.jpg
      * @return Average color of the image taken
      */
+   @Override
    public Color takePicture()
    {
         try
