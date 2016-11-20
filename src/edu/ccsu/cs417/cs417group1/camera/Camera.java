@@ -12,13 +12,16 @@ import javax.imageio.ImageIO;
  * @author phuphanmbp
  * Create a object type camera that can take a image and calculate the average color of a image
  */
-public class Camera implements CameraInterface
+public class Camera 
 {
    // Path to the raspistill executable.
    private final String RASPISTILL_PATH = "/opt/vc/bin/raspistill";
    
    // Specify a picture name.
    private String name = "/home/pi/Desktop/surveillance.jpg";
+   
+   // Picture object
+   private Picture picture;
 
    // Default  constructor.
    public void Camera()
@@ -30,14 +33,10 @@ public class Camera implements CameraInterface
      * @param inputfile the path of the image 
      * @return average color of the image file
      */
-   @Override
-    public Color getColorAvg(String inputfile){
+   public Color getColorAvg(String inputfile){
         BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File(inputfile));
-        } 
-        catch (IOException e) { }
-        
+        img = picture.getImage(inputfile);
+      
         int red = 0, green = 0, blue = 0;
         int pixelCount = 0;
         
@@ -53,13 +52,15 @@ public class Camera implements CameraInterface
                 }
         }
         System.out.println("Did return color");
-        return new Color(red / pixelCount, green / pixelCount, blue / pixelCount);
+        
+        Color currentColor = new Color(red / pixelCount, green / pixelCount, blue / pixelCount);
+        picture.setColor(currentColor);
+        return currentColor;
     }
     /**
      * This method gets camera to take an image and save it by the name /home/pi/Desktop/surveillance.jpg
      * @return Average color of the image taken
      */
-   @Override
    public Color takePicture()
    {
         try
@@ -67,6 +68,7 @@ public class Camera implements CameraInterface
             // Create a new string builder with the path to raspistill.
             StringBuilder sb = new StringBuilder(RASPISTILL_PATH);
             sb.append(" -o " + name);
+            picture.setPath(name);
             // Take the photo.
             Runtime.getRuntime().exec(sb.toString());
         }
@@ -110,5 +112,47 @@ public class Camera implements CameraInterface
    {
        return ("This camera saves to the file " + this.name);
    }
+   
+   /**
+   * Inner class
+   * @author Sonia Leonato
+   * Creates an object of type Picture which stores the attributes of the image taken with the camera
+   */
+   public class Picture{
+	   
+	   protected Color color;
+	   protected String path;
+	   
+	   
+	   public Color getColor(){
+		   return color;
+	   }
+	   public void setColor(Color newColor){
+		   color = newColor;
+	   }
+	   public String getPath(){
+		   return path;
+	   }
+	   public void setPath(String newPath){
+		   path = newPath;
+	   }
+	   
+	   /**
+	     * Get the file specified by the input path
+	     * @param the path of the image 
+	     * @return image file
+	     */
+	   public BufferedImage getImage(String inputFile){
+		   try {
+			return ImageIO.read(new File(inputFile));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		   return null;
+	   }
+	   
+   }
+   
 
 }
