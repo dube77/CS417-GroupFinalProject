@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
  * @author phuphanmbp
  * Create a object type camera that can take a image and calculate the average color of a image
  */
-public class Camera 
+public class Camera implements CameraInterface
 {
    // Path to the raspistill executable.
    private final String RASPISTILL_PATH = "/opt/vc/bin/raspistill";
