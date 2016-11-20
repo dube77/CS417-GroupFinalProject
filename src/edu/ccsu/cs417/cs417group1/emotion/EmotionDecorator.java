@@ -3,57 +3,57 @@ package edu.ccsu.cs417.cs417group1.emotion;
 // Decorator
 public abstract class EmotionDecorator implements IEmotion
 {
-    final protected IEmotion instance;
-    final protected double intensityModifier;
+    final protected IEmotion INSTANCE;
+    final protected double INTENSITY_MODIFIER;
     
     /* Constructor
-    * @param wrappedInstance - Emotion instance to be wrapped
+    * @param wrappedInstance - Emotion INSTANCE to be wrapped
     * @param intensity - multiplier to be used in intensity calculations 
     * @author Cameron Sonido
     */
     public EmotionDecorator(IEmotion wrappedInstance,double intensity){
-        intensityModifier = intensity;
-        instance = wrappedInstance;
+        INTENSITY_MODIFIER = intensity;
+        INSTANCE = wrappedInstance;
     }
     
     
-    /* Non-functional - to avoid deviating from the Decorator pattern, returns the wrapped instance
+    /* Non-functional - to avoid deviating from the Decorator pattern, returns the wrapped INSTANCE
     * @param s - useless String
     * @author Cameron Sonido
     */
     @Override
     public IEmotion getChild(String s){
-        return instance;
+        return INSTANCE;
     }
 
-    /* Passes method to wrapped instance
+    /* Passes method to wrapped INSTANCE
     * @author Cameron Sonido
     */
     //Developer note: depending on pi implementation we could perform express based on intensity modifier
     @Override
     public void express() {
-        instance.express();
+        INSTANCE.express();
     }
 
-    /* Passes method to wrapped instance
+    /* Passes method to wrapped INSTANCE
     * @param e - Emote to add to wrapped emotion
     * @author Cameron Sonido
     */
     @Override
     public void addComponent(IEmotion e) {
-        instance.addComponent(e);
+        INSTANCE.addComponent(e);
     }
 
-    /* Passes method to wrapped instance
-    * @param desc - desc to be passed to wrapped instance
+    /* Passes method to wrapped INSTANCE
+    * @param desc - desc to be passed to wrapped INSTANCE
     * @author Cameron Sonido
     */
     @Override
     public IEmotion removeComponent(String desc) {
-        return instance.removeComponent(desc);
+        return INSTANCE.removeComponent(desc);
     }
     
-    /* Returns the description of the instance, in addition to the modifier
+    /* Returns the description of the INSTANCE, in addition to the modifier
      * @author Cameron Sonido
      */
     abstract public String getDescription();

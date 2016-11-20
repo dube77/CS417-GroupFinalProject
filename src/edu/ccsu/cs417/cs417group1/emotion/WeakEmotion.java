@@ -3,7 +3,7 @@ package edu.ccsu.cs417.cs417group1.emotion;
 //@author Cameron Sonido
 public class WeakEmotion extends EmotionDecorator
 {
-    final private String description = "Weak";
+    final private String DESCRIPTION = "Weak";
     public WeakEmotion(IEmotion wrappedInstance,double intensity){
         super(wrappedInstance,intensity);
     }
@@ -12,13 +12,13 @@ public class WeakEmotion extends EmotionDecorator
      * @author Cameron Sonido
      */
     public double getIntensity(){
-        return instance.getIntensity() / intensityModifier;
+        return INSTANCE.getIntensity() / INTENSITY_MODIFIER;
     }
     
-    /* Returns the decorator's description appended to the description of the wrapped instance
+    /* Returns the decorator's DESCRIPTION appended to the DESCRIPTION of the wrapped INSTANCE
      *  @author Cameron Sonido
      */
     public String getDescription(){
-        return description+" "+instance.getDescription();
+        return DESCRIPTION+" "+INSTANCE.getDescription();
     }
 }
