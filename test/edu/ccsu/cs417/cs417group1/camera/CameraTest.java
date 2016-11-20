@@ -5,6 +5,7 @@
  */
 
 package edu.ccsu.cs417.cs417group1.camera;
+import edu.ccsu.cs417.cs417group1.camera.Camera;
 import java.awt.Color;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.*;
