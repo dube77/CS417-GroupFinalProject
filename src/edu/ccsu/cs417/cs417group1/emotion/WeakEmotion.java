@@ -1,3 +1,5 @@
+package edu.ccsu.cs417.cs417group1.emotion;
+
 //@author Cameron Sonido
 public class WeakEmotion extends EmotionDecorator
 {
