@@ -8,10 +8,11 @@ package edu.ccsu.cs417.cs417group1.camera;
 import edu.ccsu.cs417.cs417group1.camera.Camera;
 import java.awt.Color;
 import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
 
 /**
  *
@@ -21,6 +22,8 @@ import org.junit.Test;
 public class CameraTest
 {
 	Camera cam;
+	Camera.Picture pic;
+	
     //Setting up the object for testing
 	@Before 
 	public void setup() {
@@ -30,7 +33,28 @@ public class CameraTest
 	//Test if the method is actually returning something isn't null and of class Color
 	@Test
 	public void takePictureTest() {
-        assertNotNull(camera.takePicture());
-        assertThat(camera.takePicture(), instanceOf(Color.class));
+        	assertNotNull(cam.takePicture());
+        	assertThat(cam.takePicture(), instanceOf(Color.class));
 	}
+	
+	
+	/**
+	 * @author Sonia Leonato
+	 * Tests for the inner class Picture
+	 */
+	@Test
+	public void getColorTest() {
+		Color color = new Color(0);
+		pic.setColor(color);
+        	assertNotNull(pic.getColor());
+	}
+	
+	@Test
+	public void getPathTest() {
+		String path = "path";
+		pic.setPath(path);
+        	assertNotNull(pic.getPath());
+	}
+	
+	
 }
