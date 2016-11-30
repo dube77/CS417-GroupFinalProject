@@ -13,6 +13,12 @@ import org.junit.Test;
 
 import edu.Tweet.TweetBuilder;
 
+/**
+ *
+ * @author Sonia Leonato
+ * Test Class for Tweet.java
+ */
+
 public class TweetTest {
 
 	Tweet tweet;
@@ -26,6 +32,7 @@ public class TweetTest {
 		builder = new TweetBuilder(vision, feeling);
 	}
 	
+	// Check if the vision and the feeling are not null
 	@Test
 	public void builderCompleteTest() {
 		assertTrue(builder.builderComplete());
@@ -38,17 +45,20 @@ public class TweetTest {
 		assertFalse(builder.builderComplete());
 	}
 	
+	// Builder completed
 	@Test
 	public void buildTweetTest() {
 		assertNotNull(builder.buildTweet());
 	}
 	
+	// Builder not completed -> exception
 	@Test (expected=RuntimeException.class)
 	public void buildEsceptionTest()  {
 		builder = new TweetBuilder(null, null);
 		assertNotNull(builder.buildTweet());
 	}
 	
+	// Check if the builder has set the intensity
 	@Test
 	public void setIntensityTest() {
 		assertNotNull(builder.setFeelingIntensity(intensity));
