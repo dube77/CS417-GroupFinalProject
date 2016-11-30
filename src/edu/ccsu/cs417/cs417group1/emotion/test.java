@@ -25,9 +25,26 @@ public class test
         System.out.println(com.getDescription());
         System.out.println("Net Mood: "+com.getIntensity());
         //////FACTORY TEST
-        AbstractFactory factory = new IEmotionFactory();
+        AbstractFactory factory = new OptimistFactory();
         System.out.println("*Camera takes in a color from camera*");
         Color c = new Color(255,255,255);
+        System.out.println("*Color receieved is "+c.getRed()+", "+c.getGreen()+", "+c.getBlue());
+        System.out.println(factory.produceEmotion(c));
+        
+        System.out.println("*Camera takes in a color from camera*");
+        c = new Color(255,0,255);
+        System.out.println("*Color receieved is "+c.getRed()+", "+c.getGreen()+", "+c.getBlue());
+        System.out.println(factory.produceEmotion(c));
+        
+        System.out.println("*Camera takes in a color from camera*");
+        c = new Color(255,0,0);
+        System.out.println("*Color receieved is "+c.getRed()+", "+c.getGreen()+", "+c.getBlue());
+        System.out.println(factory.produceEmotion(c));
+        
+        //////FACTORY TEST
+        factory = new PessimistFactory();
+        System.out.println("*Camera takes in a color from camera*");
+        c = new Color(255,255,255);
         System.out.println("*Color receieved is "+c.getRed()+", "+c.getGreen()+", "+c.getBlue());
         System.out.println(factory.produceEmotion(c));
         
