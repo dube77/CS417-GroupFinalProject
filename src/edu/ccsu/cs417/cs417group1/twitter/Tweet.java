@@ -1,6 +1,10 @@
 package edu.ccsu.cs417.cs417group1.twitter;
 
 import edu.ccsu.cs417.cs417group1.twitter.Tweet.TweetBuilder;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
 
 public class Tweet {
 
@@ -12,6 +16,13 @@ public class Tweet {
 		this.vision = builder.vision;
 		this.feeling = builder.feeling;
 		this.intensity = builder.intensity;
+	}
+	
+	public void PublishTweet() throws TwitterException{
+		Twitter twitter = TwitterFactory.getSingleton();
+		String newTweet = "I see a " + vision + " and it makes me feel " + intensity.toString() + " " + feeling;
+		Status status = twitter.updateStatus(newTweet);
+	    System.out.println("Successfully updated the status to [" + status.getText() + "].");
 	}
 
 	public static class TweetBuilder {
@@ -32,9 +43,10 @@ public class Tweet {
 		}
 
 		public boolean builderComplete() {
-			if ((vision != null) && (feeling != null)) {
+			if ((vision != null) && (feeling != null) && (intensity != null)) {
 				return true;
-			} else {
+			} 
+			else {
 				return false;
 			}
 		}

@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.Tweet.TweetBuilder;
+import edu.ccsu.cs417.cs417group1.twitter.Tweet.TweetBuilder;
 
 /**
  *
