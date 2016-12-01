@@ -28,7 +28,7 @@ public class Camera implements CameraInterface
    {
    }
    
-    /**
+    /*
      * Get average color of a image file
      * @param inputfile the path of the image 
      * @return average color of the image file
