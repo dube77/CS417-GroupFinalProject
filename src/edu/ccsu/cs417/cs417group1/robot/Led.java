@@ -1,4 +1,4 @@
-package edu.ccsu.cs417.cs417group1;
+package edu.ccsu.cs417.cs417group1.robot;
 
 import edu.ccsu.cs417.cs417group1.robot.PinDNEException;
 
