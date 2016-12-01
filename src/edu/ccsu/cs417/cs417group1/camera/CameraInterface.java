@@ -23,7 +23,8 @@ public interface CameraInterface {
     * This method take a picture
     * @return the average color type Color
     */
-   public Color takePicture();
+   public String takePicture();
+   public Color getColorAvg(String inputfile)
    
    @Override
    public boolean equals(Object o);

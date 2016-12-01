@@ -63,7 +63,7 @@ public class Camera implements CameraInterface
      * @return Average color of the image taken
      */
    @Override
-   public Color takePicture()
+   public String takePicture()
    {
         try
         {
@@ -79,7 +79,7 @@ public class Camera implements CameraInterface
             // Exit the application with the exception's hash code.
             System.exit(e.hashCode());
         }
-        return getColorAvg(name);
+        return name ;
    }
    /**
      * This method gets camera to take an image and save it by the name put by user
