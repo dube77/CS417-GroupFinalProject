@@ -1,4 +1,6 @@
-package edu.ccsu.cs417.cs417group1.robot;
+package edu.ccsu.cs417.cs417group1;
+
+import edu.ccsu.cs417.cs417group1.robot.PinDNEException;
 
 import java.io.IOException;
 import java.util.List;
