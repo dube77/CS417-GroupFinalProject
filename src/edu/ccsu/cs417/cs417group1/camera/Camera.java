@@ -28,36 +28,6 @@ public class Camera implements CameraInterface
    {
    }
    
-    /*
-     * Get average color of a image file
-     * @param inputfile the path of the image 
-     * @return average color of the image file
-     */
-   @Override
-   public Color getColorAvg(String inputfile){
-        BufferedImage img = null;
-        img = picture.getImage(inputfile);
-      
-        int red = 0, green = 0, blue = 0;
-        int pixelCount = 0;
-        
-        for (int y = 0; y < img.getHeight(); y++)
-        {
-            for (int x = 0; x < img.getWidth(); x++)
-                {
-                    int pixel = img.getRGB(x, y);
-                    pixelCount++;
-                    red += pixel>>16&0xFF;
-                    green += pixel>>8&0xFF;
-                    blue += pixel&0xFF;
-                }
-        }
-        System.out.println("Did return color");
-        
-        Color currentColor = new Color(red / pixelCount, green / pixelCount, blue / pixelCount);
-        picture.setColor(currentColor);
-        return currentColor;
-    }
     /**
      * This method gets camera to take an image and save it by the name /home/pi/Desktop/surveillance.jpg
      * @return Average color of the image taken
@@ -79,14 +49,14 @@ public class Camera implements CameraInterface
             // Exit the application with the exception's hash code.
             System.exit(e.hashCode());
         }
-        return name ;
+        return name;
    }
    /**
      * This method gets camera to take an image and save it by the name put by user
      * @return Average color of the image taken
      * @param inputfile the path of the image
      */
-   public Color takePicture(String name)
+   public String takePicture(String name)
    {
       this.name = name;
       return takePicture();
