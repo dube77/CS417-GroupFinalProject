@@ -36,19 +36,19 @@ public abstract class Emotion implements IEmotion
         
         Emotion that = (Emotion) o;
         
-        return this.DESCRIPTION.equals(that.DESCRIPTION);
+        return this.getDescription().equals(that.getDescription());
     }
     
     @Override
     public int hashCode()
     {
-        return this.DESCRIPTION.hashCode();
+        return this.getDescription().hashCode();
     }
     
     
     @Override
     public String toString()
     {
-        return "This emotion is " + this.INTENSITY;
+        return "This emotion is " + this.getIntensity();
     }
 }
