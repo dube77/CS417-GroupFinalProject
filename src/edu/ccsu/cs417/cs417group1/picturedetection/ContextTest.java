@@ -21,6 +21,7 @@ public class ContextTest {
 	@Test
 	public void getColorTest() {
         assertNotNull(context.getColorAvg("path"));
+	assertThat(context.getColorAvg("path"), instanceOf(Color.class));
 	}
 
 }
