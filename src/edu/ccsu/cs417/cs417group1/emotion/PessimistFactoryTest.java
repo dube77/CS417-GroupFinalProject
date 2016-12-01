@@ -16,6 +16,7 @@ public class PessimistFactoryTest {
 
 	@Test
 	public void test() {
+		blue = new Color(30);
 		assertThat(pessimist.produceEmotion(blue), instanceOf(AbstractProduct.class));
 	}
 
