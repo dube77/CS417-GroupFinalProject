@@ -1,4 +1,4 @@
- 
+package edu.ccsu.cs417.cs417group1.emotion;
 
 import static org.junit.Assert.*;
 import java.util.*;
