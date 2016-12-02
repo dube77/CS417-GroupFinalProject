@@ -1,11 +1,11 @@
- 
 
-public class Anxiety extends Emotion
+
+public class CripplingDepression extends Emotion
 {
     
-    public Anxiety()
+    public CripplingDepression()
     {
-        super(-5, "Anxiety");
+        super(-50, "Crippling Depression");
     }
     
     @Override

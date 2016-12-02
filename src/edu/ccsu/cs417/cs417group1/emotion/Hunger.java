@@ -1,11 +1,9 @@
- 
-
-public class Anxiety extends Emotion
+public class Hunger extends Emotion
 {
     
-    public Anxiety()
+    public Hunger()
     {
-        super(-5, "Anxiety");
+        super(5, "Hunger");
     }
     
     @Override
@@ -35,6 +33,7 @@ public class Anxiety extends Emotion
     public IEmotion getChild(String desc){
         return null;
     }
+
     
     /* Returns the leaf's DESCRIPTION
      *  @author Cameron Sonido
