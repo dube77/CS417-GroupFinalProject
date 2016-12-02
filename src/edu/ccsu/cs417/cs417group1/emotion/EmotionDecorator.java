@@ -1,4 +1,4 @@
-package edu.ccsu.cs417.cs417group1.emotion;
+ 
 
 // Decorator
 public abstract class EmotionDecorator implements IEmotion
@@ -74,7 +74,8 @@ public abstract class EmotionDecorator implements IEmotion
         
         EmotionDecorator that = (EmotionDecorator) o;
         
-        return this.INSTANCE.equals(that.INSTANCE);
+        return (this.INSTANCE.getDescription().equals(that.INSTANCE.getDescription()))
+                && (this.INSTANCE.getIntensity() == that.INSTANCE.getIntensity());
     }
     
     @Override
@@ -87,6 +88,6 @@ public abstract class EmotionDecorator implements IEmotion
     @Override
     public String toString()
     {
-        return this.INSTANCE.toString();
+        return this.INSTANCE.toString() + this.INSTANCE.getDescription();
     }
 }
