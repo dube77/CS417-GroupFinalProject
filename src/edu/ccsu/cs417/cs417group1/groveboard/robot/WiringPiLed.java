@@ -1,5 +1,6 @@
-package edu.ccsu.cs417.cs417group1.robot;
+package edu.ccsu.cs417.cs417group1.groveboard.robot;
 
+import edu.ccsu.cs417.cs417group1.groveboard.PinDNEException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
