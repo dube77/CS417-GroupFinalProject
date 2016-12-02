@@ -1,4 +1,4 @@
-package edu.ccsu.cs417group1.picturedetection;
+package edu.ccsu.cs417.cs417group1.picturedetection;
 
 /* interface class that have a method to return what inside a picture
  * @author Phu Phan

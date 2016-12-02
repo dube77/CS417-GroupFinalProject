@@ -1,4 +1,4 @@
-package edu.ccsu.cs417group1.picturedetection;
+package edu.ccsu.cs417.cs417group1.picturedetection;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;

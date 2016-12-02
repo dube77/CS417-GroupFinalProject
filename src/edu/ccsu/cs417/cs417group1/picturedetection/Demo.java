@@ -1,4 +1,4 @@
-package edu.ccsu.cs417group1.picturedetection;
+package edu.ccsu.cs417.cs417group1.picturedetection;
 
 public class Demo {
 	public static void main(String[] args) {
