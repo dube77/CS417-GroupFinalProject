@@ -90,7 +90,7 @@ public class Camera implements CameraInterface
    * @author Sonia Leonato
    * Creates an object of type Picture which stores the attributes of the image taken with the camera
    */
-   private class Picture{
+   protected class Picture{
 	   
 	   protected Color color;
 	   protected String path;
