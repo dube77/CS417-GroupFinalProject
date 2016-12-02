@@ -1,11 +1,11 @@
- 
 
-public class Joy extends Emotion
+
+public class Bravery extends Emotion
 {
     
-    public Joy()
+    public Bravery()
     {
-        super(5, "Joy");
+        super(15, "Bravery");
     }
     
     @Override

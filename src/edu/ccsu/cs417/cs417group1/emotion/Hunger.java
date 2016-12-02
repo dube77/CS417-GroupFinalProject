@@ -1,11 +1,9 @@
- 
-
-public class Joy extends Emotion
+public class Hunger extends Emotion
 {
     
-    public Joy()
+    public Hunger()
     {
-        super(5, "Joy");
+        super(5, "Hunger");
     }
     
     @Override
