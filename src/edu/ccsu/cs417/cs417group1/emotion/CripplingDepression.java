@@ -13,7 +13,8 @@ public class CripplingDepression extends Emotion
         //Do something related to the LED
     }
 
-    /* Returns the INTENSITY of the current emotion
+    /** 
+     * Returns the INTENSITY of the current emotion
      * @author Cameron Sonido
      */
     @Override
@@ -21,7 +22,8 @@ public class CripplingDepression extends Emotion
         return INTENSITY;
     }
     
-    /* The following 3 functions lack implementation to safely execute the decorator pattern 
+    /** 
+     * The following 3 functions lack implementation to safely execute the decorator pattern 
      * @author Cameron Sonido
      */
     @Override
@@ -36,7 +38,8 @@ public class CripplingDepression extends Emotion
         return null;
     }
     
-    /* Returns the leaf's DESCRIPTION
+    /** 
+     * Returns the leaf's DESCRIPTION
      *  @author Cameron Sonido
      */
     public String getDescription(){

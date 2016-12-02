@@ -6,7 +6,8 @@ public abstract class EmotionDecorator implements IEmotion
     final protected IEmotion INSTANCE;
     final protected double INTENSITY_MODIFIER;
     
-    /* Constructor
+    /**
+    * Constructor
     * @param wrappedInstance - Emotion INSTANCE to be wrapped
     * @param intensity - multiplier to be used in intensity calculations 
     * @author Cameron Sonido
@@ -17,7 +18,8 @@ public abstract class EmotionDecorator implements IEmotion
     }
     
     
-    /* Non-functional - to avoid deviating from the Decorator pattern, returns the wrapped INSTANCE
+    /**
+    * Non-functional - to avoid deviating from the Decorator pattern, returns the wrapped INSTANCE
     * @param s - useless String
     * @author Cameron Sonido
     */
@@ -26,7 +28,8 @@ public abstract class EmotionDecorator implements IEmotion
         return INSTANCE;
     }
 
-    /* Passes method to wrapped INSTANCE
+    /**
+    * Passes method to wrapped INSTANCE
     * @author Cameron Sonido
     */
     //Developer note: depending on pi implementation we could perform express based on intensity modifier
@@ -35,7 +38,8 @@ public abstract class EmotionDecorator implements IEmotion
         INSTANCE.express();
     }
 
-    /* Passes method to wrapped INSTANCE
+    /**
+    * Passes method to wrapped INSTANCE
     * @param e - Emote to add to wrapped emotion
     * @author Cameron Sonido
     */
@@ -44,7 +48,8 @@ public abstract class EmotionDecorator implements IEmotion
         INSTANCE.addComponent(e);
     }
 
-    /* Passes method to wrapped INSTANCE
+    /**
+    * Passes method to wrapped INSTANCE
     * @param desc - desc to be passed to wrapped INSTANCE
     * @author Cameron Sonido
     */
@@ -53,14 +58,16 @@ public abstract class EmotionDecorator implements IEmotion
         return INSTANCE.removeComponent(desc);
     }
     
-    /* Returns the description of the INSTANCE, in addition to the modifier
+    /**
+     * Returns the description of the INSTANCE, in addition to the modifier
      * @author Cameron Sonido
      */
     abstract public String getDescription();
     
-    /* Returns the net intensity of all emotions composing this object 
-    * @author Cameron Sonido
-    */
+    /**
+     * Returns the net intensity of all emotions composing this object 
+     * @author Cameron Sonido
+     */
     @Override
     abstract public double getIntensity();
     

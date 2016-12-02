@@ -1,7 +1,8 @@
 import java.awt.*;
 public class OptimistFactory implements AbstractFactory
 {
-    /* Returns an IEmotion product based on  
+    /**
+     * Returns an IEmotion product based on  
      * @param color: java.awt.Color object returned by the camera
      */
     public AbstractProduct produceEmotion(Color color){

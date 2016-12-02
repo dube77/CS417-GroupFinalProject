@@ -24,7 +24,8 @@ public abstract class Mood extends Emotion
         emotes = new ArrayList<IEmotion>();
     }
 
-    /* Adds an emotion to the composite Emotion
+    /**
+     * Adds an emotion to the composite Emotion
      * @param e - The emotion to be appended
      * @author Cameron Sonido
      */
@@ -33,7 +34,8 @@ public abstract class Mood extends Emotion
         emotes.add(e);
     }
 
-    /*  Removes an emotion from the composite Emotion
+    /**
+     * Removes an emotion from the composite Emotion
      * @param desc - Description of the emotion desired to be removed
      * from the composite
      * @author Cameron Sonido
@@ -49,7 +51,8 @@ public abstract class Mood extends Emotion
         throw new NoSuchElementException("Emotion does not have an element to remove with desc="+desc);
     } 
 
-    /*  Gets an emotion from the composite Emotion by its description.
+    /**
+     * Gets an emotion from the composite Emotion by its description.
      * Returns null if no such element.
      * @param i - Index of child to be retrieved
      * from the composite
@@ -65,7 +68,8 @@ public abstract class Mood extends Emotion
         return null;
     } 
 
-    /* Returns the net intensity of all emotions composing this object 
+    /**
+     * Returns the net intensity of all emotions composing this object 
      * @author Cameron Sonido
      */
     @Override
@@ -79,7 +83,7 @@ public abstract class Mood extends Emotion
         return totalIntensity;
     }
 
-    /* Returns the description of this object, appended to the descriptions of its children
+    /** Returns the description of this object, appended to the descriptions of its children
     * @author Cameron Sonido
     */  
     @Override
