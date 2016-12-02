@@ -42,6 +42,31 @@ public class Tweet {
 		Status status = twitter.updateStatus(newTweet);
 	    System.out.println("Successfully updated the status to [" + status.getText() + "].");
 	}
+        
+        @Override
+        public boolean equals(Object o)
+        {
+            if (this == o)
+                return true;
+            if (o == null || getClass() != o.getClass())
+                return false;
+            
+            Tweet that = (Tweet) o;
+            
+            return (this.vision.equals(that.vision)) && (this.feeling.equals(that.feeling)) && (this.intensity.equals(that.intensity));
+        }
+        
+        @Override
+        public int hashCode()
+        {
+            return (this.vision.hashCode() + this.feeling.hashCode() + this.intensity.hashCode()) / 3;
+        }
+        
+        @Override
+        public String toString()
+        {
+            return "Current vision: " + this.vision + "\nCurrent feeling: " + this.feeling;
+        }
 	
 	/**
 	 * Creates TweetBuilder used to assign values to Tweet object
