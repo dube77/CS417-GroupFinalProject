@@ -73,7 +73,7 @@ public class Tweet {
 	 * @author Jeremy Dube
 	 */
 
-	protected static class TweetBuilder {
+	public static class TweetBuilder {
 		private String vision = null;
 		private String feeling = null;
 		private FeelingIntensity intensity = null;
