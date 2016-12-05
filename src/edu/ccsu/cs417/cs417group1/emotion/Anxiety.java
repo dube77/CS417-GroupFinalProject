@@ -5,7 +5,7 @@ public class Anxiety extends Emotion
     
     public Anxiety()
     {
-        super(-5, "Anxiety");
+        super(-5, "Anxious");
     }
     
     @Override
