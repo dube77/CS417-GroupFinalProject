@@ -5,7 +5,7 @@ public class Joy extends Emotion
     
     public Joy()
     {
-        super(5, "Joy");
+        super(5, "Joyous");
     }
     
     @Override
