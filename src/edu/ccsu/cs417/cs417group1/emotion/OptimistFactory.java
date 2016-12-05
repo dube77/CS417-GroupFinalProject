@@ -47,7 +47,7 @@ public class OptimistFactory implements AbstractFactory
             return new IntenseEmotion(new Joy(),10.0);
         }
         //default
-        return new Anxiety();   
+        return new Joy();   
     }
 }
 
