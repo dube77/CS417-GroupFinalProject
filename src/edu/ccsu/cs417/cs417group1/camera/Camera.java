@@ -14,11 +14,21 @@ import javax.imageio.ImageIO;
  */
 public class Camera implements CameraInterface
 {
-   // Path to the raspistill executable.
-   private final String RASPISTILL_PATH = "/opt/vc/bin/raspistill";
-   
-   // Specify a picture name.
-   private String name = "/home/pi/Desktop/surveillance.jpg";
+   // Define the path to the raspistill executable.
+   private final String _raspistillPath = "/opt/vc/bin/raspistill";
+   // Define the amount of time that the camera will use to take a photo.
+   private final int _picTimeout = 500;
+   // Define the image quality.
+   private final int _picQuality = 100;
+
+   // Specify a default image width.
+   private int _picWidth = 1024;
+   // Specify a default image height.
+   private int _picHeight = 768;
+   // Specify a default image name.
+   private String name = "example.jpg";
+   // Specify a default image encoding.
+   private String _picType = "jpg";
    
    // Picture object
    private Picture picture;
@@ -35,31 +45,62 @@ public class Camera implements CameraInterface
    @Override
    public String takePicture()
    {
-        try
-        {
-            // Create a new string builder with the path to raspistill.
-            StringBuilder sb = new StringBuilder(RASPISTILL_PATH);
-            sb.append(" -o " + name);
-            picture.setPath(name);
-            // Take the photo.
-            Runtime.getRuntime().exec(sb.toString());
-        }
-        catch (Exception e)
-        {
-            // Exit the application with the exception's hash code.
-            System.exit(e.hashCode());
-        }
-        return name;
+      try
+      {
+         // Determine the image type based on the file extension (or use the default).
+         if (name.indexOf('.')!=-1) _picType = name.substring(name.lastIndexOf('.')+1);
+
+         // Create a new string builder with the path to raspistill.
+         StringBuilder sb = new StringBuilder(_raspistillPath);
+
+         // Add parameters for no preview and burst mode.
+         sb.append(" -n -bm");
+         // Configure the camera timeout.
+         sb.append(" -t " + _picTimeout);
+         // Configure the picture width.
+         sb.append(" -w " + _picWidth);
+         // Configure the picture height.
+         sb.append(" -h " + _picHeight);
+         // Configure the picture quality.
+         sb.append(" -q " + _picQuality);
+         // Specify the image type.
+         sb.append(" -e " + _picType);
+         // Specify the name of the image.
+         sb.append(" -o " + name);
+
+         // Invoke raspistill to take the photo.
+         Runtime.getRuntime().exec(sb.toString());
+         // Pause to allow the camera time to take the photo.
+         Thread.sleep(_picTimeout);
+	 
+      }
+      catch (Exception e)
+      {
+         // Exit the application with the exception's hash code.
+         System.exit(e.hashCode());
+      }
+return name;
    }
-   /**
-     * This method gets camera to take an image and save it by the name put by user
-     * @return Average color of the image taken
-     * @param inputfile the path of the image
-     */
-   public String takePicture(String name)
+
+   // Overloaded method to take a photo using specific values for the name/width/height.
+   public void takePicture(String name, int width, int height)
    {
       this.name = name;
-      return takePicture();
+      _picWidth = width;
+      _picHeight = height;
+      takePicture();
+   }
+
+   // Overloaded method to take a photo using a specific value for the image name.
+   public void takePicture(String name)
+   {
+      takePicture(name, _picWidth, _picHeight);
+   }
+
+   // Overloaded method to take a photo using specific values for width/height.
+   public void takePicture(int width, int height)
+   {
+      takePicture(name, width, height);
    }
    
    @Override
