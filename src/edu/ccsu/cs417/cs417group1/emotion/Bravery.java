@@ -5,7 +5,7 @@ public class Bravery extends Emotion
     
     public Bravery()
     {
-        super(15, "Bravery");
+        super(15, "Brave");
     }
     
     @Override
