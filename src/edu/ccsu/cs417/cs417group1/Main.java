@@ -13,6 +13,7 @@ import edu.ccsu.cs417.cs417group1.picturedetection.LabelDetection;
 import edu.ccsu.cs417.cs417group1.picturedetection.LandmarkDetection;
 import edu.ccsu.cs417.cs417group1.twitter.FeelingIntensity;
 import edu.ccsu.cs417.cs417group1.twitter.Tweet;
+import twitter4j.TwitterException;
 import java.util.Properties;
 
 import java.awt.*;
@@ -25,7 +26,7 @@ import static edu.ccsu.cs417.cs417group1.Properties.*;
  * Created by mattrusczyk on 12/1/16.
  */
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         gatherProps();
 
         try {
@@ -101,7 +102,7 @@ public class Main {
         }
     }
 
-    private static void sendTweet() {
+    private static void sendTweet() throws TwitterException, InterruptedException {
         Camera camera = new Camera();
         String pictureName = camera.takePicture();
         Detection detection;
@@ -127,6 +128,8 @@ public class Main {
 
         feeling = emotionFactory.produceEmotion(color);
 
+System.out.println(pictureName);
+
         tweet = new Tweet.TweetBuilder(objectSeen, feeling.getDescription());
         if (feeling.getIntensity() <= -50)
             tweet.setFeelingIntensity(FeelingIntensity.ONE);
@@ -139,7 +142,8 @@ public class Main {
         else
             tweet.setFeelingIntensity(FeelingIntensity.FIVE);
 
-        tweet.buildTweet();
+        Tweet firstTweet = tweet.buildTweet();
+	firstTweet.PublishTweet();
 
 
     }
@@ -151,23 +155,23 @@ public class Main {
             Properties props = new Properties();
             props.load(environmentProperties);
 
-            if (props.contains(RED_PORT))
+            if (props.containsKey(RED_PORT))
                 RED = Integer.parseInt(props.getProperty(RED_PORT));
-            if (props.contains(GREEN_PORT))
+            if (props.containsKey(GREEN_PORT))
                 GREEN = Integer.parseInt(props.getProperty(GREEN_PORT));
-            if (props.contains(BLUE_PORT))
+            if (props.containsKey(BLUE_PORT))
                 BLUE = Integer.parseInt(props.getProperty(BLUE_PORT));
-            if (props.contains(RGB_CONNECTED))
+            if (props.containsKey(RGB_CONNECTED))
                 RGB = Boolean.parseBoolean(props.getProperty(RGB_CONNECTED));
-            if (props.contains(BUTTON_PORT))
+            if (props.containsKey(BUTTON_PORT))
                 BUTTON = Integer.parseInt(props.getProperty(BUTTON_PORT));
-            if (props.contains(OPTIMIST))
+            if (props.containsKey(OPTIMIST))
                 optimist = Boolean.parseBoolean(props.getProperty(OPTIMIST));
-            if (props.contains(LANDMARK))
+            if (props.containsKey(LANDMARK))
                 landmark = Boolean.parseBoolean(props.getProperty(LANDMARK));
-            if (props.contains(BUTTON_CONNECTED))
+            if (props.containsKey(BUTTON_CONNECTED))
                 buttonConnected = Boolean.parseBoolean(props.getProperty(BUTTON_CONNECTED));
-            if (props.contains(RGB_CONNECTED))
+            if (props.containsKey(RGB_CONNECTED))
                 RGB = Boolean.parseBoolean(props.getProperty(RGB_CONNECTED));
         }
         catch (Exception e) {
