@@ -33,7 +33,19 @@ public class EmotionCollection<T extends IEmotion>
             if(x.equals(e))
             {
                 emotions.remove(x);
-                return x;
+                return e;
+            }
+        }
+        throw new NoSuchElementException("Emotion does not have an element that equals " + x.toString() + " to remove.");
+    }
+    
+    public T get(T x)
+    {
+        for(T e:emotions)
+        {
+            if(x.equals(e))
+            {
+                return e;
             }
         }
         throw new NoSuchElementException("Emotion does not have an element that equals " + x.toString() + " to remove.");
