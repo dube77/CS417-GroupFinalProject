@@ -82,25 +82,10 @@ public class Camera implements CameraInterface
 return name;
    }
 
-   // Overloaded method to take a photo using specific values for the name/width/height.
-   public void takePicture(String name, int width, int height)
-   {
-      this.name = name;
-      _picWidth = width;
-      _picHeight = height;
-      takePicture();
-   }
-
    // Overloaded method to take a photo using a specific value for the image name.
    public void takePicture(String name)
    {
       takePicture(name, _picWidth, _picHeight);
-   }
-
-   // Overloaded method to take a photo using specific values for width/height.
-   public void takePicture(int width, int height)
-   {
-      takePicture(name, width, height);
    }
    
    @Override
