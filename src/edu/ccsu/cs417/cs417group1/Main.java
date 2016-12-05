@@ -131,7 +131,9 @@ public class Main {
 System.out.println(pictureName);
 
         tweet = new Tweet.TweetBuilder(objectSeen, feeling.getDescription());
-        if (feeling.getIntensity() <= -50)
+        if (feeling.getDescription().equals("cripplingly depressed"))
+	    tweet.setFeelingIntensity(FeelingIntensity.THREE);
+	else if (feeling.getIntensity() <= -50)
             tweet.setFeelingIntensity(FeelingIntensity.ONE);
         else if (feeling.getIntensity() < 0)
             tweet.setFeelingIntensity(FeelingIntensity.TWO);
