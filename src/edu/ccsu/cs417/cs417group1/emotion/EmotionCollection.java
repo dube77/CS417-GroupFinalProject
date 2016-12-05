@@ -32,11 +32,24 @@ public class EmotionCollection<T extends IEmotion>
         {
             if(x.equals(e))
             {
-                emotions.remove(x);
+                emotions.remove(e);
                 return e;
             }
         }
         throw new NoSuchElementException("Emotion does not have an element that equals " + x.toString() + " to remove.");
+    }
+    
+    public T remove(String desc)
+    {
+        for(T e:emotions)
+        {
+            if(e.toString().equals(desc))
+            {
+                emotions.remove(e);
+                return e;
+            }
+        }
+        throw new NoSuchElementException("Emotion does not have an element to remove with desc="+desc);
     }
     
     public T get(T x)
@@ -48,7 +61,47 @@ public class EmotionCollection<T extends IEmotion>
                 return e;
             }
         }
-        throw new NoSuchElementException("Emotion does not have an element that equals " + x.toString() + " to remove.");
+        return null;
+    }
+    
+    public T get(String desc)
+    {
+        for(T e:emotions)
+        {
+            if(e.toString().equals(desc))
+            {
+                return e;
+            }
+        }
+        return null;
+    }
+    
+    public void express()
+    {
+        for(T e:emotions)
+        {
+            e.express();
+        }
+    }
+    
+    public double getIntensity()
+    {
+        double temp = 0;
+        for(T e:emotions)
+        {
+            temp += e.getIntensity();
+        }
+        return temp;
+    }
+    
+    public String getDescription()
+    {
+        String temp = "";
+        for(T e:emotions)
+        {
+            temp += e.getDescription() + ",";
+        }
+        return temp;
     }
     
     @Override
@@ -71,5 +124,10 @@ public class EmotionCollection<T extends IEmotion>
             temp += e.hashCode();
         }
         return temp;
+    }
+    
+    public int size()
+    {
+        return emotions.size();
     }
 }

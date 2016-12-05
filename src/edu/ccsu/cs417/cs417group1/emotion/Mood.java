@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 public abstract class Mood extends Emotion
 {
-    protected List<IEmotion> emotes; 
+    protected EmotionCollection<IEmotion> emotes;
     protected String description;
 
     /* Perform express on all children of composite object
@@ -14,14 +14,12 @@ public abstract class Mood extends Emotion
      */
     @Override
     public void express(){
-        for (IEmotion e: emotes){
-            e.express();
-        }
+        emotes.express();
     }
 
     public Mood(double intensity, String desc){
         super(intensity, desc);
-        emotes = new ArrayList<IEmotion>();
+        emotes = new EmotionCollection<IEmotion>();
     }
 
     /**
@@ -42,13 +40,7 @@ public abstract class Mood extends Emotion
      */
     @Override
     public IEmotion removeComponent(String desc){
-        for (IEmotion e:emotes){
-            if(e.toString().equals(desc)){
-                emotes.remove(e);
-                return e; //equivalent to a break statement
-            }
-        }
-        throw new NoSuchElementException("Emotion does not have an element to remove with desc="+desc);
+        return emotes.remove(desc);
     } 
 
     /**
@@ -60,12 +52,7 @@ public abstract class Mood extends Emotion
      */
     @Override
     public IEmotion getChild(String desc){
-        for (IEmotion e:emotes){
-            if(e.toString().equals(desc)){
-                return e;
-            }
-        }
-        return null;
+        return emotes.get(desc);
     } 
 
     /**
@@ -74,13 +61,7 @@ public abstract class Mood extends Emotion
      */
     @Override
     public double getIntensity(){
-        double totalIntensity=0;
-        if (emotes.size()>0) {
-            for (IEmotion e: emotes){
-                totalIntensity+=e.getIntensity();
-            }
-        }
-        return totalIntensity;
+        return emotes.getIntensity();
     }
 
     /** Returns the description of this object, appended to the descriptions of its children
@@ -88,16 +69,6 @@ public abstract class Mood extends Emotion
     */  
     @Override
     public String getDescription(){
-        String s;
-        if (emotes.size()>0){
-            s = description+"- affected by: ";
-            for (IEmotion e: emotes){
-                s+=e.getDescription()+",";
-            }
-        }
-        else{
-            s = description;
-        }
-        return s;
+        return this.description + "- affected by: " + emotes.getDescription();
     }
 }
