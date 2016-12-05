@@ -5,7 +5,7 @@ public class CripplingDepression extends Emotion
     
     public CripplingDepression()
     {
-        super(-50, "Crippling Depression");
+        super(-50, "cripplingly depressed");
     }
     
     @Override
