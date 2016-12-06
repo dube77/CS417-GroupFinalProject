@@ -29,7 +29,7 @@ public class Camera implements CameraInterface
    private String name = "example.jpg";
    // Specify a default image encoding.
    private String _picType = "jpg";
-   
+
    // Picture object
    private Picture picture;
 
@@ -37,7 +37,7 @@ public class Camera implements CameraInterface
    public void Camera()
    {
    }
-   
+
     /**
      * This method gets camera to take an image and save it by the name /home/pi/Desktop/surveillance.jpg
      * @return Average color of the image taken
@@ -72,7 +72,7 @@ public class Camera implements CameraInterface
          Runtime.getRuntime().exec(sb.toString());
          // Pause to allow the camera time to take the photo.
          Thread.sleep(_picTimeout);
-	 
+
       }
       catch (Exception e)
       {
@@ -95,33 +95,33 @@ return name;
            return true;
        if((o == null) || (this.getClass() != o.getClass()))
            return false;
-       
+
        return this.name.equals(((Camera)o).name);
    }
-   
+
    @Override
    public int hashCode()
    {
        return (this.name.hashCode());
    }
-    
+
    @Override
    public String toString()
    {
        return ("This camera saves to the file " + this.name);
    }
-   
+
    /**
    * Inner class
    * @author Sonia Leonato
    * Creates an object of type Picture which stores the attributes of the image taken with the camera
    */
    protected class Picture{
-	   
+
 	   protected Color color;
 	   protected String path;
-	   
-	   
+
+
 	   public Color getColor(){
 		   return color;
 	   }
@@ -134,10 +134,10 @@ return name;
 	   public void setPath(String newPath){
 		   path = newPath;
 	   }
-	   
+
 	   /**
 	     * Get the file specified by the input path
-	     * @param the path of the image 
+	     * @param the path of the image
 	     * @return image file
 	     */
 	   public BufferedImage getImage(String inputFile){
@@ -149,8 +149,8 @@ return name;
 		}
 		   return null;
 	   }
-	   
+
    }
-   
+
 
 }
