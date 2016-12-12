@@ -1,11 +1,9 @@
 package edu.ccsu.cs417.cs417group1.groveboard.robot;
 
-import edu.ccsu.cs417.cs417group1.groveboard.PinDNEException;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import edu.ccsu.cs417.cs417group1.groveboard.PinDNEException;
 
 /**
  * class adapter that interfaces with command line program WiringPi
@@ -13,8 +11,6 @@ import java.util.List;
  * @author Matt Rusczyk
  */
 public class WiringPiLed extends Led { // TODO gotta change these names so they are less confusing
-    private boolean on = false, out = false; // might not actually need right now
-    private ProcessBuilder pb;
 
     public WiringPiLed(int p) throws PinDNEException
     {
@@ -47,8 +43,7 @@ public class WiringPiLed extends Led { // TODO gotta change these names so they 
 
        out = false;
     }
-    
-    @Override
+
     public void turnOn() throws IOException{
         String pinN = "" + pin;
         List<String> command = new ArrayList();
@@ -64,7 +59,6 @@ public class WiringPiLed extends Led { // TODO gotta change these names so they 
         on = true;
     }
 
-    @Override
     public void turnOff() throws IOException{
         if (pin > 29 || pin < 0) {}
         String pinN = "" + pin;
@@ -76,21 +70,5 @@ public class WiringPiLed extends Led { // TODO gotta change these names so they 
 
         sendCommand(command);
         on = false;
-    }
-
-    /**
-     * sends a command to the linux shell
-     * ProcessBuilder sends a command to the shell by taking each member of 'command'
-     * and turning it into a command that any linux shell can understand
-     * @param command the command to be executed
-     * @throws IOException
-     */
-    public void sendCommand(List<String> command) throws IOException {
-        pb = new ProcessBuilder(command);
-        pb.redirectErrorStream(true);
-
-        Process p = pb.start();
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
     }
 }

@@ -1,11 +1,11 @@
- 
+package edu.ccsu.cs417.cs417group1.emotion;
 
 public class Joy extends Emotion
 {
     
     public Joy()
     {
-        super(5, "Joy");
+        super(5, "Joyous");
     }
     
     @Override

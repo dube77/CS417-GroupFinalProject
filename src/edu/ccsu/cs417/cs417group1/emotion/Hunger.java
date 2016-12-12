@@ -1,9 +1,11 @@
+package edu.ccsu.cs417.cs417group1.emotion;
+
 public class Hunger extends Emotion
 {
     
     public Hunger()
     {
-        super(5, "Hunger");
+        super(5, "Hungry");
     }
     
     @Override
